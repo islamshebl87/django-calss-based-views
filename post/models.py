@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
+
 
 # Create your models here.
 
@@ -16,7 +18,7 @@ class Post(models.Model):
         verbose_name_plural = ("Posts")
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse("Post_detail", kwargs={"pk": self.pk})
